@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <title>Todays lectures</title>
+</head>
+<body>
+<table dt:table="true">
+    <h2>Your courses for today</h2>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Lecture</th>
+        <th>Code</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todaysLecture: ${todaysLectures}">
+        <td th:text="${todaysLecture.date}"></td>
+        <td th:text="${todaysLecture.name}"></td>
+        <td> <input th:type="text"> <button type="button">Submit</button> </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

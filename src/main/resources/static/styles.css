@@ -1,0 +1,17 @@
+thead {
+    background-color: mediumvioletred;
+    color: white;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+table {
+    border: 1px solid black;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}

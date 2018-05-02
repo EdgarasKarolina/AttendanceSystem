@@ -23,13 +23,14 @@ public class EnrolledStudentsController {
     @Autowired
     EnrolledStudentsService service;
 
-  /*  @GetMapping("/courses")
+    /*
+    @GetMapping("/courses")
     public String allCourses(Model model) {
 
         String amountOfCourses = service.getAllCoursesForStudent();
         model.addAttribute("say", amountOfCourses);
         return "coursesview";
-    } */
+    }  */
 
    /* @GetMapping("/courses")
     public String allCourses(Model model) {
@@ -38,7 +39,7 @@ public class EnrolledStudentsController {
         return "coursesview";
     } */
 
-    @GetMapping("/courses")
+  /*  @GetMapping("/courses")
     public String getTodayLectures(Model model) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
@@ -56,5 +57,13 @@ public class EnrolledStudentsController {
 
         model.addAttribute("todaysLectures", listOfTodaysLectures);
         return "todays_students_lectures_";
+    } */
+
+    @GetMapping("/courses")
+    public String getTodayLectures(Model model) {
+
+
+
+        return "coursesview";
     }
 }

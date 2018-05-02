@@ -1,24 +1,38 @@
 package com.kea.attendance.Model;
 
-import javax.persistence.Column;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
-public class TodaysLectures
+@Entity
+@IdClass(TodaysLectures.class)
+@Table(name="course")
+@SecondaryTables({
+        @SecondaryTable(name="enrolledstudents"),
+        @SecondaryTable(name="user")
+})
+public class TodaysLectures implements Serializable
 {
-    private String date;
+   // @Id
+   // @Column(name="date", table="lecture")
+    private Date date;
+
+    @Id
+    @Column(name="name", table="course")
     private String name;
 
-    public TodaysLectures(String date, String name)
+    /*
+    public TodaysLectures(Date date, String name)
     {
         this.date = date;
         this.name = name;
-    }
+    } */
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -22,13 +22,4 @@ public class EnrolledStudentsService
     {
         this.enrolledStudentsRepository = enrolledStudentsRepository;
     }
-
-    /*
-    public String getAllCoursesForStudent()
-    {
-        List<EnrolledStudents> list = (List<EnrolledStudents>) enrolledStudentsRepository.findByStudentId(3);
-        return String.valueOf(list.size());
-    } */
-
-
 }

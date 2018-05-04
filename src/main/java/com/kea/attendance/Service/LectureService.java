@@ -18,5 +18,4 @@ public class LectureService
     {
         this.lectureRepository = lectureRepository;
     }
-
 }

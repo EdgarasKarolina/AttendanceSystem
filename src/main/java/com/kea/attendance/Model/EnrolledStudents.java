@@ -15,7 +15,7 @@ public class EnrolledStudents implements Serializable {
     @Column(name="studentid")
     private int studentId;
 
-    //@Id
+    @Id
     @Column(name="courseID")
     private int courseId;
 

@@ -8,15 +8,15 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
-
+@IdClass(TodaysLectures.class)
 @Entity
-public class TodaysLectures
+public class TodaysLectures implements Serializable
 {
     @Id
     private Date date;
 
+    @Id
     private String name;
-
 
     public Date getDate() {
         return date;

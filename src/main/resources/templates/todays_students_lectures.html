@@ -16,7 +16,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="todaysLecture: ${todaysLectures}">
+    <tr th:each="todaysLecture: ${results}">
         <td th:text="${todaysLecture.date}"></td>
         <td th:text="${todaysLecture.name}"></td>
         <td> <input th:type="text"> <button type="button">Submit</button> </td>

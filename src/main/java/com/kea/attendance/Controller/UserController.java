@@ -12,22 +12,4 @@ public class UserController
 {
     @Autowired
     UserService userService;
-
-    /*
-    @GetMapping("/courses")
-    public String allCourses(Model model) {
-
-        String amountOfCourses = service.getAllCoursesForStudent();
-        model.addAttribute("say", amountOfCourses);
-        return "coursesview";
-    }  */
-    @GetMapping("/users")
-    public String allStudent(Model model) {
-
-        int amountOfUsers = userService.getAll().size();
-        String string = String.valueOf(amountOfUsers);
-        model.addAttribute("say", string);
-        return "coursesview";
-    }
-
 }

@@ -16,7 +16,6 @@ public class Course implements Serializable {
     @Column(name="ID")
     private int id;
 
-
     @Column(name="name")
     private String name;
 

@@ -14,8 +14,4 @@ import java.util.List;
 @Repository
 public interface LectureRepository extends CrudRepository<Lecture,Long>
 {
-
-   /* @Query("SELECT date,name FROM  Lecture date, Course name "
-            + "WHERE c.id=l.courseId AND l.id = p.lessonId AND p.userId = u.id AND u.id=:userId AND c.id=:courseId")
-    List<Object[]> getLecturesOfToday(int studentId); */
 }

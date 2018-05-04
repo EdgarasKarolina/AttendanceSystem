@@ -13,7 +13,6 @@ import java.sql.Time;
 @Table(name="lecture")
 public class Lecture implements Serializable
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="ID")
@@ -31,8 +30,4 @@ public class Lecture implements Serializable
 
     @Column(name="classroom")
     private String classroom;
-
-
-
-
 }

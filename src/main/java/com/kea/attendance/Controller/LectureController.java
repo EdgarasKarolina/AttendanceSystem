@@ -12,5 +12,4 @@ public class LectureController
 {
     @Autowired
     LectureService service;
-
 }

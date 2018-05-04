@@ -23,47 +23,4 @@ public class EnrolledStudentsController {
     @Autowired
     EnrolledStudentsService service;
 
-    /*
-    @GetMapping("/courses")
-    public String allCourses(Model model) {
-
-        String amountOfCourses = service.getAllCoursesForStudent();
-        model.addAttribute("say", amountOfCourses);
-        return "coursesview";
-    }  */
-
-   /* @GetMapping("/courses")
-    public String allCourses(Model model) {
-
-        //model.addAttribute("say", amountOfCourses);
-        return "coursesview";
-    } */
-
-  /*  @GetMapping("/courses")
-    public String getTodayLectures(Model model) {
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
-
-
-        TodaysLectures day1 = new TodaysLectures("2012-10-15", "Software design");
-        TodaysLectures day2 = new TodaysLectures("2012-10-16", "DLS");
-        TodaysLectures day3 = new TodaysLectures("2012-10-17", "Artificial inteligence");
-        TodaysLectures day4 = new TodaysLectures("2012-10-18", "Java");
-        List<TodaysLectures> listOfTodaysLectures = new LinkedList<>();
-        listOfTodaysLectures.add(day1);
-        listOfTodaysLectures.add(day2);
-        listOfTodaysLectures.add(day3);
-        listOfTodaysLectures.add(day4);
-
-        model.addAttribute("todaysLectures", listOfTodaysLectures);
-        return "todays_students_lectures_";
-    } */
-
-    @GetMapping("/courses")
-    public String getTodayLectures(Model model) {
-
-
-
-        return "coursesview";
-    }
 }

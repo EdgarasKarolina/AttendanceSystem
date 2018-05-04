@@ -17,24 +17,4 @@ public class CourseController
 {
     @Autowired
     CourseService service;
-
-   /* @GetMapping("/courses")
-    public String allCourses(Model model) {
-            //List<Course> listOfCourses = service.getAll();
-
-            String number = "nothing";
-            if (service == null)
-            {
-                System.out.println("it is null");
-            }
-            else {
-                number = service.getAll();
-            }
-
-            model.addAttribute("say", number);
-            return "coursesview";
-    } */
-
-
-
 }

@@ -21,16 +21,4 @@ public class CourseService
         this.courseRepository = courseRepository;
     }
 
-    public String getAll()
-    {
-        List<Course> list = (List<Course>) courseRepository.findAll();
-        return String.valueOf(list.size());
-    }
-
-/*
-    public List<Course> listOfCoursesForStudent(int id)
-    {
-
-    }
-    */
 }

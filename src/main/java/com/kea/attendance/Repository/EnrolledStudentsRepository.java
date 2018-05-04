@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Edgaras on 28/04/2018.
  */
 @Repository
-public interface EnrolledStudentsRepository extends CrudRepository<EnrolledStudents,Long> {
+public interface EnrolledStudentsRepository extends CrudRepository<EnrolledStudents,Long>
+{
 
-    //List<EnrolledStudents> findByStudentId(int studentId);
 }

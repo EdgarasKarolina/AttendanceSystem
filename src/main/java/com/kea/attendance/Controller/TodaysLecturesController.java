@@ -16,11 +16,38 @@ public class TodaysLecturesController
     @Autowired
     TodaysLecturesService todaysLecturesService;
 
+    @GetMapping("/")
+    public String root( Model model) {
+        List<Object[]> results = this.todaysLecturesService.getStudentCourse(1);
+        System.out.println(results.size());
+
+        Object[] myList = results.get(0);
+
+        System.out.println(myList[0] + "---------------------");
+        System.out.println(myList[1] + "---------------------");
+
+        model.addAttribute("results",results);
+        return "courses";
+    }
+
+
+/*
     @GetMapping("/todayslectures")
     public String getTodaysLectures(Model model) {
         List<TodaysLectures> amountOfCourses = todaysLecturesService.getAll2();
         String amount = String.valueOf(amountOfCourses.size());
         model.addAttribute("say", amount);
         return "coursesview";
+    } */
+
+    /*
+    @GetMapping("/todayslectures")
+    public String getTodaysLectures(Model model) {
+        List<TodaysLectures> listOfLectures = todaysLecturesService.getTodaysLectures(1);
+        model.addAttribute("todaysLectures", listOfLectures);
+        return "todays_students_lectures_";
     }
+    */
+
+
 }

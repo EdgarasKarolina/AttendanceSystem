@@ -1,32 +1,22 @@
 package com.kea.attendance.Model;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.repository.NoRepositoryBean;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
+
 
 @Entity
-@IdClass(TodaysLectures.class)
-@Table(name="course")
-@SecondaryTables({
-        @SecondaryTable(name="enrolledstudents"),
-        @SecondaryTable(name="user")
-})
-public class TodaysLectures implements Serializable
+public class TodaysLectures
 {
-   // @Id
-   // @Column(name="date", table="lecture")
+    @Id
     private Date date;
 
-    @Id
-    @Column(name="name", table="course")
     private String name;
 
-    /*
-    public TodaysLectures(Date date, String name)
-    {
-        this.date = date;
-        this.name = name;
-    } */
 
     public Date getDate() {
         return date;

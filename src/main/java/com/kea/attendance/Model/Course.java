@@ -1,18 +1,21 @@
 package com.kea.attendance.Model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Edgaras on 27/04/2018.
  */
 @Entity
+@IdClass(Course.class)
 @Table(name="course")
-public class Course {
+public class Course implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="ID")
     private int id;
+
 
     @Column(name="name")
     private String name;

@@ -15,5 +15,5 @@ import java.util.List;
 @Repository
 public interface EnrolledStudentsRepository extends CrudRepository<EnrolledStudents,Long> {
 
-    List<EnrolledStudents> findByStudentId(int studentId);
+    //List<EnrolledStudents> findByStudentId(int studentId);
 }

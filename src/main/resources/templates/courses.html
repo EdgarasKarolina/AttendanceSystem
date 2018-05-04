@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+</head>
+<body>
+<table class="table table-striped table-bordered">
+    <tr>
+        <td>Course</td>
+    </tr>
+    <tr th:each="result: ${results}">
+        <td th:text="${result}">Date</td>
+
+    </tr>
+</table>
+</body>
+</html>

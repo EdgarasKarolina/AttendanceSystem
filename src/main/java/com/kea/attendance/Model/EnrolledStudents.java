@@ -12,10 +12,10 @@ import java.io.Serializable;
 public class EnrolledStudents implements Serializable {
 
     @Id
-    @Column(name="studentID")
+    @Column(name="studentid")
     private int studentId;
 
-    @Id
+    //@Id
     @Column(name="courseID")
     private int courseId;
 

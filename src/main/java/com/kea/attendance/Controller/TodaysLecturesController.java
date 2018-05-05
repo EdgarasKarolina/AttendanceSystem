@@ -18,7 +18,11 @@ public class TodaysLecturesController {
 
     @GetMapping("/")
     public String root(Model model) {
-        List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(1);
+        List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(3);
+
+        for (TodaysLectures item : results) {
+            System.out.println(item.getCourseID());
+        }
 
         model.addAttribute("results", results);
         return "todays_students_lectures";

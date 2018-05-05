@@ -6,6 +6,7 @@
     <title>Todays lectures</title>
 </head>
 <body>
+<div class="center">
 <table dt:table="true">
     <h2>Your courses for today</h2>
     <thead>
@@ -17,11 +18,16 @@
     </thead>
     <tbody>
     <tr th:each="todaysLecture: ${results}">
+        <form action="#" th:action="@{/check}" method="post">
         <td th:text="${todaysLecture.date}"></td>
         <td th:text="${todaysLecture.name}"></td>
-        <td> <input th:type="text"> <button type="button">Submit</button> </td>
+        <input type="hidden" th:value="${todaysLecture.ID}" name="ID" />
+            <input type="hidden" th:value="${todaysLecture.courseID}" name="courseID" />
+        <td> <input th:name="code" th:type="text"> <button type="submit" th:value="Submit">Submit</button> </td>
+        </form>
     </tr>
     </tbody>
 </table>
+</div>
 </body>
 </html>

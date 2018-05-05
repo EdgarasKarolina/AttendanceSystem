@@ -13,10 +13,16 @@ import java.util.List;
 public class TodaysLectures implements Serializable
 {
     @Id
+    public int ID;
+
+    @Id
     private Date date;
 
     @Id
     private String name;
+
+    @Id
+    private int courseID;
 
     public Date getDate() {
         return date;
@@ -33,4 +39,20 @@ public class TodaysLectures implements Serializable
     public void setName(String name) {
         this.name = name;
     }
+
+    public int getLectureId() {
+        return ID;
+    }
+
+    public void setLectureId(int lectureId) {
+        this.ID = ID;
+    }    public int getCourseID() {
+    return courseID;
+}
+
+    public void setCourseID(int courseID) {
+        this.courseID = courseID;
+    }
+
+
 }

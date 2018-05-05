@@ -6,6 +6,7 @@ import com.kea.attendance.Repository.AttendanceCodeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -19,9 +20,9 @@ public class AttendanceCodeService
         this.attendanceCodeRepository = attendanceCodeRepository;
     }
 
-    public List<AttendanceCode> getAttendanceCodes(String code, int lectureID) {
+    public List<AttendanceCode> getAttendanceCodes(String code, int lectureID, Timestamp timestamp) {
 
-        List<AttendanceCode> results = this.attendanceCodeRepository.findAllByCodeAndLectureID(code, lectureID);
+        List<AttendanceCode> results = this.attendanceCodeRepository.findAllByCodeAndLectureIDAndTimestampAfter(code, lectureID, timestamp);
 
         return results;
     }

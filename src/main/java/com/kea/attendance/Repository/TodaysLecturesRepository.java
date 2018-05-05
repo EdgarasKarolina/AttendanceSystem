@@ -11,7 +11,7 @@ import java.util.List;
 public interface TodaysLecturesRepository extends CrudRepository<TodaysLectures,Long>
 {
     @Query(value =
-            "SELECT Lecture.date, Course.name" +
+            "SELECT Lecture.date, Course.name, Lecture.ID, Lecture.courseID" +
                     " FROM Lecture" +
                     " INNER JOIN Course on Lecture.CourseID = Course.ID" +
                     " WHERE Lecture.CourseID IN (select courseID from enrolledstudents where studentID = ?)" +

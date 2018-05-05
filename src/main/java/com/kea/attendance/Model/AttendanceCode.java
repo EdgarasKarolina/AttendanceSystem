@@ -6,16 +6,19 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
-@IdClass(AttendanceCode.class)
 @Table(name="attendancecode")
 public class AttendanceCode implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
-    private int ID;
+    private Long ID;
+
+    public AttendanceCode() {
+    }
 
     @Column(name="timestamp")
+
     private Timestamp timestamp;
 
     @Column(name="code")
@@ -24,11 +27,17 @@ public class AttendanceCode implements Serializable {
     @Column(name="lectureID")
     private int lectureID;
 
-    public int getID() {
+    public AttendanceCode(Timestamp timestamp, String code, int lectureID) {
+        this.timestamp = timestamp;
+        this.code = code;
+        this.lectureID = lectureID;
+    }
+
+    public Long getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(Long ID) {
         this.ID = ID;
     }
 

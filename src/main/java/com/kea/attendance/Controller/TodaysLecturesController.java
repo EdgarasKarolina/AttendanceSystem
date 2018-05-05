@@ -16,7 +16,6 @@ public class TodaysLecturesController {
     @Autowired
     TodaysLecturesService todaysLecturesService;
 
-
     @GetMapping("/")
     public String root(Model model) {
         List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(1);
@@ -25,18 +24,5 @@ public class TodaysLecturesController {
         return "todays_students_lectures";
     }
 }
-    /*
-    @GetMapping("/")
-    public String root( Model model) {
-        List<Object[]> results = this.todaysLecturesService.getStudentCourse(1);
-        System.out.println(results.size());
 
-        Object[] myList = results.get(3);
-
-        System.out.println(myList[0] + "---------------------");
-        System.out.println(myList[1] + "---------------------");
-
-        model.addAttribute("results",results);
-        return "courses";
-    } */
 

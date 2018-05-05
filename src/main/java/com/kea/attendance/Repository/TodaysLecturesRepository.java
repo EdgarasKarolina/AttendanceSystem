@@ -11,7 +11,11 @@ import java.util.List;
 public interface TodaysLecturesRepository extends CrudRepository<TodaysLectures,Long>
 {
     @Query(value =
-            "SELECT date, name from Lecture, course WHERE CourseID IN (select courseID from enrolledstudents where studentID = ? AND date = curdate())",
+            "SELECT Lecture.date, Course.name" +
+                    " FROM Lecture" +
+                    " INNER JOIN Course on Lecture.CourseID = Course.ID" +
+                    " WHERE Lecture.CourseID IN (select courseID from enrolledstudents where studentID = ?)" +
+                    " AND Lecture.date = curdate()",
             nativeQuery = true)
     List<TodaysLectures>  findAllByRoleId(Integer studentId);
 }

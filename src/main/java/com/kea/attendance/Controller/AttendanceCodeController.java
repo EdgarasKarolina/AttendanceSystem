@@ -36,8 +36,6 @@ public class AttendanceCodeController
 
         if (results.size() > 0)
         {
-            System.out.println("RESULT IS VERY NICE");
-
             Attendance attendance = new Attendance();
             attendance.setStudentID(3);
             attendance.setLectureID(ID);
@@ -53,25 +51,6 @@ public class AttendanceCodeController
         }
         return viewReturn;
     }
-
-    /*
-    @PostMapping("/check")
-    public String root(Model model) {
-
-        List<AttendanceCode> results = this.attendanceCodeService.getAttendanceCodes("111", 1, new Timestamp(System.currentTimeMillis()));
-        model.addAttribute("results", results);
-
-        System.out.println(results.size() + "------------------ This is the size");
-        for (AttendanceCode item : results) {
-            System.out.println(item.getCode());
-            System.out.println(item.getTimestamp());
-            System.out.println(item.getLectureID());
-            System.out.println("-----------------------------------");
-        }
-        return "todays_students_lectures";
-    } */
-
-  
 
     @GetMapping("/generateCode/{id}")
     public String generateCode(@PathVariable int id, Model model) {
@@ -91,6 +70,4 @@ public class AttendanceCodeController
         model.addAttribute("code",code);
         return "generateCode";
     }
-
-
 }

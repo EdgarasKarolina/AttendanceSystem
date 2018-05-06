@@ -1,17 +1,16 @@
 package com.kea.attendance.Model;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.data.repository.NoRepositoryBean;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
 
 @IdClass(TodaysLectures.class)
 @Entity
 public class TodaysLectures implements Serializable
 {
+
     @Id
     public int ID;
 

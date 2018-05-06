@@ -16,7 +16,7 @@ public class TodaysLecturesController {
     TodaysLecturesService todaysLecturesService;
 
 
-    private String role = "teacher";
+    private String role = "student";
 
     @GetMapping("/")
     public String root(Model model) {

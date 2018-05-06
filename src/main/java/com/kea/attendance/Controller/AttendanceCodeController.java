@@ -71,9 +71,7 @@ public class AttendanceCodeController
         return "todays_students_lectures";
     } */
 
-        return "todays_students_lectures";
-    }
-
+  
 
     @GetMapping("/generateCode/{id}")
     public String generateCode(@PathVariable int id, Model model) {

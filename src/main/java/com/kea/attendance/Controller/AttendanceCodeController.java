@@ -6,7 +6,9 @@ import com.kea.attendance.Model.User;
 import com.kea.attendance.Service.AttendanceCodeService;
 import com.kea.attendance.Service.AttendanceService;
 import com.kea.attendance.Service.UserService;
+
 import com.kea.attendance.Utilities.StudentUtilities;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,7 +41,7 @@ public class AttendanceCodeController
 
     @PostMapping("/check")
     public String root(Model model, @RequestParam(name = "code") String code, @RequestParam(name = "ID") int ID,
-                       @RequestParam(name = "courseID") int courseID) {
+                         @RequestParam(name = "courseID") int courseID) {
 
         String networkName = StudentUtilities.getConnectedSSID();
         String IP = StudentUtilities.getIP();
@@ -50,6 +52,7 @@ public class AttendanceCodeController
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+
 
 
         // TODO Please look at it if THERE ARE PROBLEMS

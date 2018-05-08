@@ -27,8 +27,9 @@ public class User
     @Column(name="password")
     private String password;
 
+    /* TODO Don't know what this is used for. Works perfectly without.
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "userrole", joinColumns = @JoinColumn(name = "userID"), inverseJoinColumns = @JoinColumn(name = "roleID"))
     private Set<Role> roles;
 
     public Set<Role> getRoles() {
@@ -39,9 +40,11 @@ public class User
         this.roles = roles;
     }
 
+    */
     public int getId() {
         return id;
     }
+
 
     public void setId(int id) {
         this.id = id;

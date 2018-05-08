@@ -7,12 +7,11 @@ import java.io.Serializable;
  * Created by Edgaras on 27/04/2018.
  */
 @Entity
-@IdClass(Course.class)
 @Table(name="course")
-public class Course implements Serializable {
+public class Course {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID")
     private int id;
 

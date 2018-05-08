@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
@@ -15,5 +16,5 @@ import java.util.List;
 @Repository
 public interface EnrolledStudentsRepository extends CrudRepository<EnrolledStudents,Long>
 {
-
+    void deleteAllByCourseId(int CourseId);
 }

@@ -23,7 +23,7 @@ public class TodaysLecturesController {
 
     @Autowired
     UserService userService;
-
+    
     @GetMapping("/todaysLectureStudent")
     public String root(Model model) {
 
@@ -50,9 +50,6 @@ public class TodaysLecturesController {
 
         List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(user.getId());
 
-        for (TodaysLectures item : results) {
-            System.out.println(item.getCourseID());
-        }
 
         return model.addAttribute("results", results);
 

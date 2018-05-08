@@ -1,11 +1,10 @@
 package com.kea.attendance.Repository;
 
-import com.kea.attendance.Model.EnrolledStudents;
 import com.kea.attendance.Model.Lecture;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,4 +13,9 @@ import java.util.List;
 @Repository
 public interface LectureRepository extends CrudRepository<Lecture,Long>
 {
+    List<Lecture> findAllByCourseIdAndDate(int courseID, java.sql.Date date);
+
+    void deleteByLectureId(int lectureID);
+
+    Lecture findByLectureId(int lectureID);
 }

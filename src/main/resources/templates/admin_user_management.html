@@ -19,7 +19,7 @@
             </select><br><br>
         <input type="submit" value="Submit">
         <input type="submit" value="Cancel"
-               onclick="window.location='/admin_panel';" />
+               onclick="window.location='/user_administration';" />
     </form>
     <br>
     <br>
@@ -27,16 +27,18 @@
     <form action="/delete_user" method="post" id="delete_user">
         Email: <input type="email"
                       name="deleteByEmail" required><br>
-        <br><br>
         <input type="submit" value="Delete">
         <input type="submit" value="Cancel"
                onclick="window.location='/user_administration';" />
     </form>
+    <br><br>
+
+
     <br>
     <br>
-    <form>
+
     <input type="submit" value="Back"
            onclick="window.location='/admin_panel';" />
-    </form>
+
 </body>
 </html>

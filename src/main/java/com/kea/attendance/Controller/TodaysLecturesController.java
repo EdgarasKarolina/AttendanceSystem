@@ -47,7 +47,7 @@ public class TodaysLecturesController {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-
+        System.out.println(user.getId());
         List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(user.getId());
 
 

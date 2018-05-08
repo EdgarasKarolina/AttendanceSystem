@@ -76,7 +76,7 @@ public class AttendanceCodeController
     @GetMapping("/generateCode/{id}")
     public String generateCode(@PathVariable int id, Model model) {
 
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis()+300000); // Add 5 minutes to(300000 mili. sec.
         String random = UUID.randomUUID().toString().replace("-", "");;
         String code = random.substring( 0, 10 );
 

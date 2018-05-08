@@ -4,6 +4,7 @@ import com.kea.attendance.Model.Attendance;
 import com.kea.attendance.Model.AttendanceCode;
 import com.kea.attendance.Service.AttendanceCodeService;
 import com.kea.attendance.Service.AttendanceService;
+import com.kea.attendance.Utilities.StudentUtilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,13 +32,17 @@ public class AttendanceCodeController
     public String root(Model model, @RequestParam(name = "code") String code, @RequestParam(name = "ID") int ID,
                        @RequestParam(name = "courseID") int courseID) {
 
+        String networkName = StudentUtilities.getConnectedSSID();
+        String IP = StudentUtilities.getIP();
+        IP = IP.substring(0, 2);
+
         List<AttendanceCode> results = this.attendanceCodeService.getAttendanceCodes(code, ID, new Timestamp(System.currentTimeMillis()));
         model.addAttribute("results", results);
 
-        if (results.size() > 0)
+        if (results.size() > 0 && networkName.equals("KEA") && IP.equals("10"))
         {
             Attendance attendance = new Attendance();
-            attendance.setStudentID(3);
+            attendance.setStudentID(2);
             attendance.setLectureID(ID);
             attendance.setCourseID(courseID);
             attendance.setAttended(1);
@@ -45,7 +50,6 @@ public class AttendanceCodeController
 
             viewReturn = "confirmation";
         }
-
         else {
             viewReturn = "error";
         }

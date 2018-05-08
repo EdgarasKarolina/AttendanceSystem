@@ -15,12 +15,11 @@ public class TodaysLecturesController {
     @Autowired
     TodaysLecturesService todaysLecturesService;
 
-
     private String role = "student";
 
     @GetMapping("/")
     public String root(Model model) {
-        List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(3);
+        List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(2);
 
         for (TodaysLectures item : results) {
             System.out.println(item.getCourseID());

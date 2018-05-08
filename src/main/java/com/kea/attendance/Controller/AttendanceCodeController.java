@@ -51,7 +51,7 @@ public class AttendanceCodeController
             viewReturn = "confirmation";
         }
         else {
-            viewReturn = "error";
+            viewReturn = "wrongCode";
         }
         return viewReturn;
     }

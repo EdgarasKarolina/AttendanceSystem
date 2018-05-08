@@ -1,8 +1,12 @@
 package com.kea.attendance.Controller;
 
 import com.kea.attendance.Model.TodaysLectures;
+import com.kea.attendance.Model.User;
 import com.kea.attendance.Service.TodaysLecturesService;
+import com.kea.attendance.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,37 +16,46 @@ import java.util.List;
 @Controller
 public class TodaysLecturesController {
 
+
+
     @Autowired
     TodaysLecturesService todaysLecturesService;
 
-    private String role = "student";
+    @Autowired
+    UserService userService;
 
-    @GetMapping("/")
+    @GetMapping("/todaysLectureStudent")
     public String root(Model model) {
-        List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(2);
+
+        getLectures(model);
+        return "todays_students_lectures";
+
+    }
+
+    @GetMapping("/todaysLectureTeacher")
+    public String teacherLecture (Model model) {
+
+
+
+        getLectures(model);
+
+
+        return "teachersLectures";
+    }
+
+    private Model getLectures(Model model){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+
+        List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(user.getId());
 
         for (TodaysLectures item : results) {
             System.out.println(item.getCourseID());
         }
 
-        model.addAttribute("results", results);
+        return model.addAttribute("results", results);
 
-            if(role == "student"){
-                return "todays_students_lectures";
 
-            }
-            return "teachersLectures";
-    }
+        }
 }
-    /*
-    @GetMapping("/")
-    public String root( Model model) {
-        List<Object[]> results = this.todaysLecturesService.getStudentCourse(1);
-        System.out.println(results.size());
-
-
-
-        model.addAttribute("results",results);
-        return "courses";
-    } */
-

@@ -25,11 +25,6 @@ public class TodaysLecturesController {
     UserService userService;
 
 
-<<<<<<< HEAD
-    private String role = "";
-=======
->>>>>>> master3
-
     @GetMapping("/todaysLectureStudent")
     public String root(Model model) {
 

@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://java.sun.com/xml/ns/persistence/orm">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles.css" type="text/css">
-    <title>Error</title>
+    <meta charset="utf-8">
+    <title>Page Not Found :(</title>
+    <link rel="stylesheet" href="/error.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
-<div>
-<body class="center">
-<img src="/warning.png" alt="Mountain View" width="250" height="250">
-    <h1>We were not able to confirm your attendance</h1>
-    <h1>Please try again</h1>
-   <button class="back_button"><a href="/" style="text-decoration: none; color: white">Back</a></button>
+
+<body>
+
+<div class="unicorn"></div>
+
+<div class="container">
+
+    <div class="four-oh-four"><h1>404 Error</h1></div>
+
+    <div class="warning">
+        <h2>"All those moments will be lost in time, like tears in rain."</h2>
+        <p>The page you are looking for might have been removed, or you have no access rights.</p>
+        <a href="javascript:history.back()">Please go back to the previous page</a>
+    </div>
+    <div class="footer"><p class="copyright">&copy; 2013 Redfrost.com</p></div>
+
+</div><!-- /.container -->
 </body>
-</div>
 </html>
+

@@ -5,12 +5,11 @@ import com.kea.attendance.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class UserService
 {
-    UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     public UserService(UserRepository userRepository)
@@ -18,8 +17,8 @@ public class UserService
         this.userRepository = userRepository;
     }
 
-    public List<User> getAll()
-    {
-        return (List<User>) userRepository.findAll();
+
+    public User findUserByEmail(String email) {
+        return userRepository.getByEmail(email);
     }
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <title></title>
+</head>
+<body>
+<div class="center">
+    <table dt:table="true">
+        <h2> Found lectures:  <span th:text="${course.name}" ></span></h2>
+
+        <br>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Class duration</th>
+            <th>Classroom</th>
+            <th>Delete option</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="lecture: ${lectures}">
+            <form action="/delete_lecture_item" th:action="@{/delete_lecture_item}" method="post">
+                <td th:text="${lecture.date}"></td>
+                <td th:text="${lecture.amountOfTime}"></td>
+                <td th:text="${lecture.classroom}"></td>
+                <input type="hidden" th:value="${lecture.lectureId}" name="lectureID" />
+                <input type="hidden" th:value="${lecture.date}" name="lectureDate" />
+                <input type="hidden" th:value="${course.name}" name="courseName" />
+                <td> <button type="submit" th:value="Delete">Delete</button> </td>
+            </form>
+        </tr>
+        </tbody>
+    </table>
+
+    <form>
+        <input type="submit" value="Cancel"
+               onclick="window.location='/lecture_administration';" />
+        <input type="submit" value="Back to admin panel"
+               onclick="window.location='/admin_panel';" />
+    </form>
+</div>
+</body>
+</html>

@@ -52,9 +52,6 @@ public class TodaysLecturesController {
 
         List<TodaysLectures> results = this.todaysLecturesService.getStudentCourse(user.getId());
 
-        for (TodaysLectures item : results) {
-            System.out.println(item.getCourseID());
-        }
 
         return model.addAttribute("results", results);
 

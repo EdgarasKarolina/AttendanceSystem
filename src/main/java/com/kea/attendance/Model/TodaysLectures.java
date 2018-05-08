@@ -12,7 +12,7 @@ public class TodaysLectures implements Serializable
 {
 
     @Id
-    public int ID;
+    public int ID; //TODO REFACTOR TO LectureID
 
     @Id
     private Date date;

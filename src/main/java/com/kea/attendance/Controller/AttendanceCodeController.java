@@ -2,10 +2,14 @@ package com.kea.attendance.Controller;
 
 import com.kea.attendance.Model.Attendance;
 import com.kea.attendance.Model.AttendanceCode;
+import com.kea.attendance.Model.User;
 import com.kea.attendance.Service.AttendanceCodeService;
 import com.kea.attendance.Service.AttendanceService;
+import com.kea.attendance.Service.UserService;
 import com.kea.attendance.Utilities.StudentUtilities;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +30,12 @@ public class AttendanceCodeController
     @Autowired
     AttendanceService attendanceService;
 
+    @Autowired
+    UserService userService;
+
     String viewReturn = null;
+
+
 
     @PostMapping("/check")
     public String root(Model model, @RequestParam(name = "code") String code, @RequestParam(name = "ID") int ID,
@@ -34,15 +43,20 @@ public class AttendanceCodeController
 
         String networkName = StudentUtilities.getConnectedSSID();
         String IP = StudentUtilities.getIP();
-        IP = IP.substring(0, 2);
+        IP = IP.substring(0, 6);
 
         List<AttendanceCode> results = this.attendanceCodeService.getAttendanceCodes(code, ID, new Timestamp(System.currentTimeMillis()));
         model.addAttribute("results", results);
 
-        if (results.size() > 0 && networkName.equals("KEA") && IP.equals("10"))
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+
+
+        // TODO Please look at it if THERE ARE PROBLEMS
+        if (results.size() > 0 && networkName.equals("KEA") && IP.equals("10.111"))
         {
             Attendance attendance = new Attendance();
-            attendance.setStudentID(2);
+            attendance.setStudentID(user.getId());
             attendance.setLectureID(ID);
             attendance.setCourseID(courseID);
             attendance.setAttended(1);

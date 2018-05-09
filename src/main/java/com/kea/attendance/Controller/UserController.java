@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 @Controller
 public class UserController
 {
@@ -23,7 +28,7 @@ public class UserController
         return "login";
     }
 
-    @RequestMapping(value="home", method = RequestMethod.GET)
+    /*@RequestMapping(value="home", method = RequestMethod.GET)
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -31,6 +36,25 @@ public class UserController
         modelAndView.addObject("userName", "Welcome to our attendance system" + user.getName());
         modelAndView.setViewName("/home");
         return modelAndView;
+    }*/
+
+    @RequestMapping("/success")
+    public void loginPageRedirect(HttpServletRequest request, HttpServletResponse response, Authentication authResult)
+            throws IOException, ServletException {
+
+        //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        //User user = userService.findUserByEmail(auth.getName());
+        String role=authResult.getAuthorities().toString();
+
+        if(role.contains("STUDENT")){
+            response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/todaysLectureStudent"));
+        }
+        else if(role.contains("TEACHER")) {
+            response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/todaysLectureTeacher"));
+        }
+        else{
+            response.sendRedirect(response.encodeRedirectURL(request.getContextPath()+"/admin_panel"));
+        }
     }
 
 }

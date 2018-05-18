@@ -22,12 +22,16 @@
         <td th:text="${todaysLecture.date}"></td>
         <td th:text="${todaysLecture.name}"></td>
         <input type="hidden" th:value="${todaysLecture.ID}" name="ID" />
-            <input type="hidden" th:value="${todaysLecture.courseID}" name="courseID" />
+            <input type="hidden" th:value="${todaysLecture.courseID}" name="courseID"  />
         <td> <input th:name="code" th:type="text"> <button type="submit" th:value="Submit">Submit</button> </td>
         </form>
     </tr>
     </tbody>
 </table>
+    <p>
+        <input type="submit" value="Send Attendance Report"
+               onclick="window.location='/reportService';" />
+    </p>
 </div>
 </body>
 </html>

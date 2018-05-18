@@ -2,19 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/admin.css" type="text/css">
     <title>Lecture management</title>
 </head>
 <body>
+<div class="center">
 <h2>Add a new Lecture</h2>
 <form action="/add_lecture" method="post" id="course">
-    Course name: <input type="text" name="lecture_name" required><br>
-    Date:<input type="date" name="date" required><br>
-    Input amount of time: <br>
-    Hours:<input type="number" name="hours" required min="0" max="24"><br>
-    Minutes:<input type="number" name="minutes" default=0 min="0" max="60   "><br>
-    Classroom: <input type="text" name="classroom" required><br>
+    <div class="row">
+        <div class="col-25">
+            <label for="lecture_name">Course Name</label>
+        </div>
+        <div class="col-75">
+            <input type="text" name="lecture_name" required>
+        </div>
+    </div>
+    <!--Course name: <input type="text" name="lecture_name" required><br>-->
+    <div class="row">
+        <div class="col-25">
+            <label for="date">Date</label>
+        </div>
+        <div class="col-75">
+            <input type="date" name="date" required>
+        </div>
+    </div>
+    <!--Date:<input type="date" name="date" required><br>-->
+    <h2>Input amount of time: </h2><br>
+    <div class="row">
+        <div class="col-25">
+            <label for="hours">Hours</label>
+        </div>
+        <div class="col-75">
+            <input type="number" name="hours" required min="0" max="24">
+        </div>
+    </div>
+    <!--Hours:<input type="number" name="hours" required min="0" max="24"><br>-->
+    <div class="row">
+        <div class="col-25">
+            <label for="minutes">Minutes</label>
+        </div>
+        <div class="col-75">
+            <input type="number" name="minutes" default=0 min="0" max="60">
+        </div>
+    </div>
+    <!--Minutes:<input type="number" name="minutes" default=0 min="0" max="60   "><br>-->
+    <div class="row">
+        <div class="col-25">
+            <label for="classroom">Classroom</label>
+        </div>
+        <div class="col-75">
+            <input type="text" name="classroom" required>
+        </div>
+    </div>
+    <!--Classroom: <input type="text" name="classroom" required><br>-->
     <br>
-    Reapeat for how many weeks: <input type="number" name="weeks" default = 1><br>
+    <div class="row">
+        <div class="col-25">
+            <label for="weeks">Reapeat for how many weeks</label>
+        </div>
+        <div class="col-75">
+            <input type="number" name="weeks" default = 1>
+        </div>
+    </div>
+    <!--Reapeat for how many weeks: <input type="number" name="weeks" default = 1><br>-->
 
     </select><br><br>
     <input type="submit" value="Submit">
@@ -25,8 +75,24 @@
 <br>
 <h2>Search for lecture</h2><br>
 <form action="/show_lectures" method="post" id="show_lectures">
-    Course name: <input type="text" name="course_name2" required><br>
-    Date:<input type="date" name="date2">
+    <div class="row">
+        <div class="col-25">
+            <label for="course_name2">Course name</label>
+        </div>
+        <div class="col-75">
+            <input type="text" name="course_name2" required>
+        </div>
+    </div>
+    <!--Course name: <input type="text" name="course_name2" required><br>-->
+    <div class="row">
+        <div class="col-25">
+            <label for="date2">Date</label>
+        </div>
+        <div class="col-75">
+            <input type="date" name="date2">
+        </div>
+    </div>
+    <!--Date:<input type="date" name="date2">-->
     <br><br>
     <input type="submit" value="Submit">
     <input type="submit" value="Cancel"
@@ -36,5 +102,6 @@
 <br>
     <input type="submit" value="Back"
            onclick="window.location='/admin_panel';" />
+</div>
 </body>
 </html>

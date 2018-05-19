@@ -4,6 +4,8 @@ import com.kea.attendance.Model.EnrolledStudents;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by Edgaras on 28/04/2018.
  */

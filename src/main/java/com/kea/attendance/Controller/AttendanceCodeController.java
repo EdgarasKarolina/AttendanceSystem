@@ -53,8 +53,6 @@ public class AttendanceCodeController
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
 
-
-
         // TODO Please look at it if THERE ARE PROBLEMS
         if (results.size() > 0 && networkName.equals("KEA") && IP.equals("10.111"))
         {

@@ -1,10 +1,7 @@
 package com.kea.attendance.Utilities;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.sql.Date;
-import java.util.GregorianCalendar;
 
 public class AdminUtilities {
 

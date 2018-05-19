@@ -1,7 +1,6 @@
 package com.kea.attendance.Model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Created by Edgaras on 27/04/2018.

@@ -43,9 +43,8 @@ public class AttendanceCodeController
     public String root(Model model, @RequestParam(name = "code") String code, @RequestParam(name = "ID") int ID,
                          @RequestParam(name = "courseID") int courseID) {
 
-        String networkName = StudentUtilities.getConnectedSSID();
         String IP = StudentUtilities.getIP();
-        IP = IP.substring(0, 6);
+        IP = IP.substring(0, 5);
 
         List<AttendanceCode> results = this.attendanceCodeService.getAttendanceCodes(code, ID, new Timestamp(System.currentTimeMillis()));
         model.addAttribute("results", results);
@@ -56,7 +55,7 @@ public class AttendanceCodeController
 
 
         // TODO Please look at it if THERE ARE PROBLEMS
-        if (results.size() > 0 && networkName.equals("KEA") && IP.equals("10.111"))
+        if (results.size() > 0 && IP.equals("94.18"))
         {
             Attendance attendance = new Attendance();
             attendance.setStudentID(user.getId());
@@ -66,6 +65,12 @@ public class AttendanceCodeController
             attendanceService.save(attendance);
 
             viewReturn = "confirmation";
+        }
+        else if (results.size() == 0 && IP.equals("94.18")){
+            viewReturn = "incorectCode";
+        }
+        else if (results.size() > 0 && !IP.equals("94.18")){
+            viewReturn = "wrongNetwork";
         }
         else {
             viewReturn = "wrongCode";

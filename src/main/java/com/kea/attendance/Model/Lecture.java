@@ -2,7 +2,6 @@ package com.kea.attendance.Model;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Time;
 
 /**
  * Created by Edgaras on 28/04/2018.

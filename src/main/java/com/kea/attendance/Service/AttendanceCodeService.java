@@ -31,9 +31,14 @@ public class AttendanceCodeService
 
     }
 
-    public String findCode(int lectureId){
+    public AttendanceCode findCode(int lectureId){
         return this.attendanceCodeRepository.findCode(lectureId);
     }
 
 
+    public void uupdateTimeStamp(AttendanceCode attendanceCode){
+        this.attendanceCodeRepository.save(attendanceCode);
+
+
+    }
 }

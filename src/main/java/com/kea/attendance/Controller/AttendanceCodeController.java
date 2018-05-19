@@ -84,18 +84,19 @@ public class AttendanceCodeController
 
     @GetMapping("/generateCode/{id}")
     public String generateCode(@PathVariable int id, Model model) {
-
+        AttendanceCode existingCode =this.attendanceCodeService.findCode(id);
         Timestamp timestamp = new Timestamp(System.currentTimeMillis()+300000); // Add 5 minutes to(300000 mili. sec.
-        String random = UUID.randomUUID().toString().replace("-", "");;
-        String code = random.substring( 0, 10 );
 
-        AttendanceCode attendanceCode = new AttendanceCode(timestamp,code,id);
-        String existingCode =this.attendanceCodeService.findCode(id);
-
-        if(this.attendanceCodeService.findCode(id)!=null){
-            model.addAttribute("code",existingCode);
+        if(existingCode!=null){
+            existingCode.setTimestamp(timestamp);
+            this.attendanceCodeService.uupdateTimeStamp(existingCode);
+            model.addAttribute("code",existingCode.getCode());
             return "generateCode";
         }
+
+        String random = UUID.randomUUID().toString().replace("-", "");;
+        String code = random.substring( 0, 10 );
+        AttendanceCode attendanceCode = new AttendanceCode(timestamp,code,id);
         this.attendanceCodeService.insertAttendanceCode(attendanceCode);
         model.addAttribute("code",code);
         return "generateCode";

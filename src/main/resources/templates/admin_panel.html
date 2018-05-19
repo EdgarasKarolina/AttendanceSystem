@@ -2,18 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://java.sun.com/xml/ns/persistence/orm">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <link rel="stylesheet" href="/admin.css" type="text/css">
     <title>Admin panel</title>
 </head>
-<h2>Admin panel</h2>
-<br>
-<input type="submit" value="User management"
+<body>
+<div class="center">
+    <table dt:table="true">
+    <h2>Admin panel</h2>
+
+    <p>
+    <input type="submit" value="User management"
        onclick="window.location='/user_administration';" />
-<br>
-<input type="submit" value="Course management"
+    </p>
+        <p>
+    <input type="submit" value="Course management"
        onclick="window.location='/course_administration';" />
-<br>
-<input type="submit" value="Lecture management"
+        </p>
+    <input type="submit" value="Lecture management"
        onclick="window.location='/lecture_administration';" />
+
+    </table>
+
+</div>
 </body>
 </html>

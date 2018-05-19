@@ -136,11 +136,11 @@ public class AdminController {
             course = adminService.findByName(lectureName);
             lecture.setCourseId(course.getId());
             lecture.setDate(java.sql.Date.valueOf(date));
-            lecture.setAmountOfTime(java.sql.Time.valueOf(""+hours+":"+minutes+":"+00));
+            lecture.setAmountOfTime(60);
             lecture.setClassroom(classroom);
             this.adminService.saveLecture(lecture);
             i++;
-            adminUtilities.addDaysToDate(date,7);
+            //adminUtilities.addDaysToDate(date,7);
         }
         while (i < weeks);
 

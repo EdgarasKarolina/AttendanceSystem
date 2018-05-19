@@ -2,15 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/admin.css" type="text/css">
     <title>Course management</title>
 </head>
 <body>
+<div class="center">
 <h2>Add a new course</h2>
 <form action="/add_course" method="post" id="course">
-    Course name: <input type="text" name="course_name"
-                       required><br>
-    Teacher email: <input type="text" name="teacher_email"><br>
-</select><br><br>
+    <div class="row">
+        <div class="col-25">
+            <label for="course_name">Course name</label>
+        </div>
+        <div class="col-75">
+            <input type="text" name="course_name" required>
+        </div>
+    </div>
+    <!--Course name: <input type="text" name="course_name"
+                       required><br>-->
+    <div class="row">
+        <div class="col-25">
+            <label for="teacher_email">Teacher Email</label>
+        </div>
+        <div class="col-75">
+            <input type="text" name="teacher_email"><br>
+            </select><br>
+        </div>
+    </div>
+    <!--Teacher email: <input type="text" name="teacher_email"><br>
+</select><br><br>-->
     <input type="submit" value="Submit">
     <input type="submit" value="Cancel"
            onclick="window.location='/course_administration';" />
@@ -19,9 +38,19 @@
 <br>
 <h2>Remove course</h2><br>
 <form action="/delete_course" method="post" id="delete_course">
-    Name: <input type="text"
-                  name="course_name_delete" required><br>
-    <br><br>
+    <div class="row">
+        <div class="col-25">
+            <label for="course_name_delete">Name</label>
+        </div>
+        <div class="col-75">
+            <input type="text" name="course_name_delete" required><br>
+        </div>
+    </div>
+
+
+    <!--Name: <input type="text"
+                  name="course_name_delete" required><br>-->
+    <br>
     <input type="submit" value="Submit">
     <input type="submit" value="Cancel"
            onclick="window.location='/course_administration';" />
@@ -30,5 +59,6 @@
 <br>
     <input type="submit" value="Back"
            onclick="window.location='/admin_panel';" />
+</div>
 </body>
 </html>

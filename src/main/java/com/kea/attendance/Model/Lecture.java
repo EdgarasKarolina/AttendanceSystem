@@ -23,7 +23,7 @@ public class Lecture
     private Date date;
 
     @Column(name="amountOfTime")
-    private Time amountOfTime;
+    private int amountOfTime;
 
     @Column(name="classroom")
     private String classroom;
@@ -52,11 +52,11 @@ public class Lecture
         this.date = date;
     }
 
-    public Time getAmountOfTime() {
+    public int getAmountOfTime() {
         return amountOfTime;
     }
 
-    public void setAmountOfTime(Time amountOfTime) {
+    public void setAmountOfTime(int amountOfTime) {
         this.amountOfTime = amountOfTime;
     }
 

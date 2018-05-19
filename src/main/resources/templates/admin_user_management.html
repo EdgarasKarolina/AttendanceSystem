@@ -1,22 +1,57 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://java.sun.com/xml/ns/persistence/orm">
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/admin.css" type="text/css">
     <title>User management</title>
 </head>
 <body>
+<div class="center">
     <h2>Add new user</h2>
     <form action="/add_user" method="post" id="user">
-        First name: <input type="text" name="fname"
-                           required><br>
+        <div class="row">
+            <div class="col-25">
+                <label for="fname">First Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="fname" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="lname">Last Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="lname" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="email" required><br>
+            </div>
+        </div><br>
+        <!--
         Last name: <input type="text" name="lname" required><br>
-        email: <input type="email"
-                      name="email" required><br>
-        Role: <select required name="userRole">
+        Email: <input type="email"
+                      name="email" required><br>-->
+        <div class="row">
+            <div class="col-25">
+                <label for ="userRole">Role</label>
+            </div>
+            <div class="col-75">
+            <select required name="userRole">
                     <option value=1 selected="selected">Student</option>
                     <option value=2>Teacher</option>
                     <option value=3>Admin</option>
-            </select><br><br>
+            </select></div>
+        </div><br>
         <input type="submit" value="Submit">
         <input type="submit" value="Cancel"
                onclick="window.location='/user_administration';" />
@@ -25,8 +60,16 @@
     <br>
     <h2>Delete an existing user</h2><br>
     <form action="/delete_user" method="post" id="delete_user">
-        Email: <input type="email"
-                      name="deleteByEmail" required><br>
+        <div class="row">
+            <div class="col-25">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-75">
+                <input type="text" name="deleteByEmail" required><br>
+            </div>
+        </div><br>
+        <!--Email: <input type="email"
+                      name="deleteByEmail" required><br>-->
         <input type="submit" value="Delete">
         <input type="submit" value="Cancel"
                onclick="window.location='/user_administration';" />
@@ -39,6 +82,6 @@
 
     <input type="submit" value="Back"
            onclick="window.location='/admin_panel';" />
-
+</div>
 </body>
 </html>

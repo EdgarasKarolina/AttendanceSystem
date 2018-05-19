@@ -20,4 +20,9 @@ public class AttendanceService
 
         attendanceRepository.save(attendance);
     }
+
+
+    public Attendance findByLectureIDandStudentID(int lectureID, int studentID){
+        return attendanceRepository.findByLectureIDAndStudentID(lectureID, studentID);
+    }
 }

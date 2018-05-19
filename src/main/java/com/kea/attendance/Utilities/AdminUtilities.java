@@ -12,10 +12,9 @@ public class AdminUtilities {
     }
 
 
-    public Date addDaysToDate(String date, int days){
-        java.sql.Date date_date = java.sql.Date.valueOf(date);
+    public Date addDaysToDate(java.sql.Date date, int days){
         Calendar c = Calendar.getInstance();
-        c.setTime(date_date);
+        c.setTime(date);
         c.add(Calendar.DATE, days);
         java.util.Date utilDate = c.getTime();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());

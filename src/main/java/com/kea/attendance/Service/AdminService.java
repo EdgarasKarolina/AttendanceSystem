@@ -90,6 +90,11 @@ public class AdminService {
         this.enrolledStudentsRepository.deleteAllByCourseId(course.getId());
     }
 
+    //TODO
+    public List<EnrolledStudents> findAllEnrolledStudentsForCourse(int courseID){
+        return this.enrolledStudentsRepository.findAllByCourseId(courseID);
+    }
+
     //LECTURE FUNCTIONS
     public void saveLecture(Lecture lecture){
         this.lectureRepository.save(lecture);

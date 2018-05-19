@@ -1,5 +1,6 @@
 package com.kea.attendance.Service;
 
+import com.kea.attendance.Model.Lecture;
 import com.kea.attendance.Repository.EnrolledStudentsRepository;
 import com.kea.attendance.Repository.LectureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,9 @@ public class LectureService
     public LectureService(LectureRepository lectureRepository)
     {
         this.lectureRepository = lectureRepository;
+    }
+
+    public Lecture findLecture(int id){
+        return this.lectureRepository.findByLectureId(id);
     }
 }

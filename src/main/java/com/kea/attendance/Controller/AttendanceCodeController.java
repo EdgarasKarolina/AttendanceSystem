@@ -2,9 +2,11 @@ package com.kea.attendance.Controller;
 
 import com.kea.attendance.Model.Attendance;
 import com.kea.attendance.Model.AttendanceCode;
+import com.kea.attendance.Model.Lecture;
 import com.kea.attendance.Model.User;
 import com.kea.attendance.Service.AttendanceCodeService;
 import com.kea.attendance.Service.AttendanceService;
+import com.kea.attendance.Service.LectureService;
 import com.kea.attendance.Service.UserService;
 
 import com.kea.attendance.Utilities.StudentUtilities;
@@ -33,6 +35,9 @@ public class AttendanceCodeController
     AttendanceService attendanceService;
 
     @Autowired
+    LectureService lectureService;
+
+    @Autowired
     UserService userService;
 
     String viewReturn = null;
@@ -58,10 +63,9 @@ public class AttendanceCodeController
         // TODO Please look at it if THERE ARE PROBLEMS
         if (results.size() > 0 && networkName.equals("KEA") && IP.equals("10.111"))
         {
-            Attendance attendance = new Attendance();
-            attendance.setStudentID(user.getId());
-            attendance.setLectureID(ID);
-            attendance.setCourseID(courseID);
+            Attendance attendance = attendanceService.findByLectureIDandStudentID(ID, user.getId());
+            Lecture lecture = lectureService.findLecture(ID);
+            attendance.setAttendedTime(lecture.getAmountOfTime());
             attendance.setAttended(1);
             attendanceService.save(attendance);
 

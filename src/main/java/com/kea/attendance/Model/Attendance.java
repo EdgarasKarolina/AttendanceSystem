@@ -24,6 +24,9 @@ public class Attendance implements Serializable
     @Column(name="attended")
     private int attended;
 
+    @Column(name="attendedTime")
+    private int attendedTime;
+
     public int getID() {
         return ID;
     }
@@ -62,5 +65,13 @@ public class Attendance implements Serializable
 
     public void setAttended(int attended) {
         this.attended = attended;
+    }
+
+    public int getAttendedTime() {
+        return attendedTime;
+    }
+
+    public void setAttendedTime(int attendedTime) {
+        this.attendedTime = attendedTime;
     }
 }

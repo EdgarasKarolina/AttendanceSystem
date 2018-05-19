@@ -17,4 +17,5 @@ import java.util.List;
 public interface EnrolledStudentsRepository extends CrudRepository<EnrolledStudents,Long>
 {
     void deleteAllByCourseId(int CourseId);
+    List<EnrolledStudents> findAllByCourseId(int courseID);
 }

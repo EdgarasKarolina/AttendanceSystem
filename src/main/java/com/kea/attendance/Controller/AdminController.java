@@ -2,6 +2,7 @@ package com.kea.attendance.Controller;
 
 import com.kea.attendance.Model.*;
 import com.kea.attendance.Service.AdminService;
+import com.kea.attendance.Service.AttendanceService;
 import com.kea.attendance.Utilities.AdminUtilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,10 @@ public class AdminController {
 
     @Autowired
     AdminService adminService;
+
+    @Autowired
+    AttendanceService attendanceService;
+
 
     //REDIRECTS
     @RequestMapping(value = "/admin_panel", method = RequestMethod.GET)
@@ -126,7 +131,8 @@ public class AdminController {
                              @RequestParam(value="weeks") int weeks){
 
         AdminUtilities adminUtilities = new AdminUtilities();
-        System.out.println(weeks);
+        java.sql.Date date1 = java.sql.Date.valueOf(date);
+        int totalTimeInMinutes = (Integer.parseInt(hours)*60)+(Integer.parseInt(minutes));
 
         int i = 0;
 
@@ -135,12 +141,29 @@ public class AdminController {
             Course course = null;
             course = adminService.findByName(lectureName);
             lecture.setCourseId(course.getId());
-            lecture.setDate(java.sql.Date.valueOf(date));
-            lecture.setAmountOfTime(60);
+            lecture.setDate(date1);
+            lecture.setAmountOfTime(totalTimeInMinutes);
             lecture.setClassroom(classroom);
             this.adminService.saveLecture(lecture);
+
+            //GET ALL STUDENTS FOR COURSE
+            System.out.println(course.getId());
+            List<EnrolledStudents> enrolledStudents = this.adminService.findAllEnrolledStudentsForCourse(course.getId());
+            System.out.println(enrolledStudents.size());
+            for (EnrolledStudents student: enrolledStudents) {
+
+                Attendance attendance = new Attendance();
+                attendance.setStudentID(student.getStudentId());
+                attendance.setLectureID(lecture.getLectureId());
+                attendance.setCourseID(course.getId());
+                attendance.setAttended(0);
+                attendance.setAttendedTime(0);
+                this.attendanceService.save(attendance);
+
+            }
+            date1 = adminUtilities.addDaysToDate(date1,7);
+
             i++;
-            //adminUtilities.addDaysToDate(date,7);
         }
         while (i < weeks);
 

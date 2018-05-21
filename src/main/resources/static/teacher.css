@@ -21,3 +21,12 @@ tr:nth-child(even) {
     padding : 4px;
     border-color : #000000
 }
+
+input[type="submit"]{
+    border:none;
+    background:mediumvioletred;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}

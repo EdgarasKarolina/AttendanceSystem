@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+<head th:replace="fragments/header :: 'header'" xmlns:th="http://www.w3.org/1999/xhtml"></head>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/admin.css" type="text/css">
     <title>Course management</title>
+    <input type="submit" value="Back"
+           onclick="window.location='/admin_panel';" />
 </head>
 <body>
 <div class="center">
@@ -57,8 +60,7 @@
 </form>
 <br>
 <br>
-    <input type="submit" value="Back"
-           onclick="window.location='/admin_panel';" />
+
 </div>
 </body>
 </html>

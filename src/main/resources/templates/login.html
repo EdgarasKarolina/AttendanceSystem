@@ -3,16 +3,19 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Spring Security Tutorial</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/login.css" type="text/css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 
+</head>
+<!--<form th:action="@{/logout}" method="POST">
+	<input type="submit" value="Logout"/>
+</form>-->
 <body>
 	<div class="container">
-		<form th:action="@{/login}" method="POST" class="form login">
+		<form th:action="@{/login}" method="POST" th:align="center" class="form login">
 			<h3 class="form-signin-heading" th:text="Welcome"></h3>
 			<br/>
 

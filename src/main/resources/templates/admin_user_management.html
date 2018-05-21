@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:dt="http://java.sun.com/xml/ns/persistence/orm">
-
+<head th:replace="fragments/header :: 'header'"></head>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/admin.css" type="text/css">
     <title>User management</title>
+    <input type="submit" value="Back"
+           onclick="window.location='/admin_panel';" />
 </head>
 <body>
 <div class="center">
@@ -80,8 +82,7 @@
     <br>
     <br>
 
-    <input type="submit" value="Back"
-           onclick="window.location='/admin_panel';" />
+
 </div>
 </body>
 </html>

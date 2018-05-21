@@ -17,7 +17,6 @@ public class UserService
         this.userRepository = userRepository;
     }
 
-
     public User findUserByEmail(String email) {
         return userRepository.getByEmail(email);
     }

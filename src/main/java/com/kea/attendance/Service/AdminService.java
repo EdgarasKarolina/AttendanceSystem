@@ -36,6 +36,7 @@ public class AdminService {
 
     //USER FUNCTIONS
     public void saveUser(User user) {
+        System.out.println("saved");
         this.userRepository.save(user);
     }
 

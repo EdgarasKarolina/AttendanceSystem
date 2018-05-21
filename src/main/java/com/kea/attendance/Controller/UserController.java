@@ -53,4 +53,10 @@ public class UserController
         }
     }
 
+
+    @RequestMapping("/requestAttendanceReport")
+    public void RequestAttedanceReport(){
+        
+    }
+
 }

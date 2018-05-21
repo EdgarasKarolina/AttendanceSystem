@@ -97,7 +97,7 @@ public class AdminController {
         course.setName(courseName);
         this.adminService.saveCourse(course);
 
-        if(teacherEmail != null){
+        if(teacherEmail != ""){
             User user = this.adminService.findUserByEmail(teacherEmail);
 
             EnrolledStudents enrolledStudents = new EnrolledStudents();

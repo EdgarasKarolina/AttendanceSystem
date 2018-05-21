@@ -27,7 +27,6 @@
         </div>
     </div>
     <!--Date:<input type="date" name="date" required><br>-->
-    <h2>Input amount of time: </h2><br>
     <div class="row">
         <div class="col-25">
             <label for="hours">Hours</label>
@@ -55,7 +54,6 @@
         </div>
     </div>
     <!--Classroom: <input type="text" name="classroom" required><br>-->
-    <br>
     <div class="row">
         <div class="col-25">
             <label for="weeks">Reapeat for how many weeks</label>
@@ -66,14 +64,12 @@
     </div>
     <!--Reapeat for how many weeks: <input type="number" name="weeks" default = 1><br>-->
 
-    </select><br><br>
+    </select><br>
     <input type="submit" value="Submit">
     <input type="submit" value="Cancel"
            onclick="window.location='/lecture_administration';" />
 </form>
-<br>
-<br>
-<h2>Search for lecture</h2><br>
+<h2>Search for lecture</h2>
 <form action="/show_lectures" method="post" id="show_lectures">
     <div class="row">
         <div class="col-25">
@@ -93,12 +89,11 @@
         </div>
     </div>
     <!--Date:<input type="date" name="date2">-->
-    <br><br>
+    <br>
     <input type="submit" value="Submit">
     <input type="submit" value="Cancel"
            onclick="window.location='/lecture_administration';" />
 </form>
-<br>
 <br>
     <input type="submit" value="Back"
            onclick="window.location='/admin_panel';" />

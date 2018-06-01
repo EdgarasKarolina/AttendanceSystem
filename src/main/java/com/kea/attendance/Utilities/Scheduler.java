@@ -13,8 +13,8 @@ public class Scheduler {
     SendMonthlyData sendMonthlyData;
 
     //Seconds / Minutes / Hours / Day of the month / Month
-    @Scheduled(cron="0 0 0 1 * ?")
-    //@Scheduled(fixedRate = 5000)
+  /*  @Scheduled(cron="0 0 0 1 * ?")*/
+    @Scheduled(fixedRate = 5000)
     public void sendData(){
         try{
             this.sendMonthlyData.sendData();

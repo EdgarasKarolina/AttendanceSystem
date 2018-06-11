@@ -14,7 +14,11 @@ public class Scheduler {
 
 
     //Seconds / Minutes / Hours / Day of the month / Month
+<<<<<<< HEAD
     //@Scheduled(cron="0 0 0 1 * ?")
+=======
+  /*  @Scheduled(cron="0 0 0 1 * ?")*/
+>>>>>>> linkFromAdminToConverter
     @Scheduled(fixedRate = 5000)
     public void sendData(){
         try{

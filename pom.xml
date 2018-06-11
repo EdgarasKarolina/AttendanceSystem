@@ -89,15 +89,12 @@
             <artifactId>geronimo-jms_1.1_spec</artifactId>
             <version>1.1.1</version>
         </dependency>
-
-
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jms</artifactId>
 			<version>2.14.1</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>

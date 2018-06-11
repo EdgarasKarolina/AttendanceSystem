@@ -30,7 +30,7 @@ public class Listener {
     @Autowired
     AdminService adminService;
 
-    @JmsListener(destination = "lala")
+    @JmsListener(destination = "user")
     public void receiveMessageFromTopic(Message message) throws JMSException, JAXBException, FileNotFoundException {
         ActiveMQBytesMessage msg = (ActiveMQBytesMessage) message;
         byte[] data = msg.getContent().getData();
@@ -41,7 +41,7 @@ public class Listener {
         String s = new String(data);
         writeIntoFile(s);
 
-        File xml = new File("C:\\Users\\Palko\\Desktop\\DLS_AttendanceSystem\\AttendanceSystem\\src\\main\\java\\com\\kea\\attendance\\File\\user.txt");
+        File xml = new File(".\\src\\main\\java\\com\\kea\\attendance\\File\\user.txt");
 
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -79,10 +79,9 @@ public class Listener {
     }
 
     public void writeIntoFile(String s) throws FileNotFoundException {
-        PrintWriter writer = new PrintWriter("C:\\Users\\Palko\\Desktop\\DLS_AttendanceSystem\\AttendanceSystem\\src\\main\\java\\com\\kea\\attendance\\File\\user.txt");
+        PrintWriter writer = new PrintWriter(".\\src\\main\\java\\com\\kea\\attendance\\File\\user.txt");
         writer.write(s);
         writer.close();
     }
-
 
 }

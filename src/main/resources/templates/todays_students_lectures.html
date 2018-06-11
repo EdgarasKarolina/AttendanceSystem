@@ -6,32 +6,33 @@
     <title>Todays lectures</title>
 </head>
 <body>
-<div class="center">
-<table dt:table="true">
-    <h2>Your courses for today</h2>
-    <thead>
-    <tr>
-        <th>Date</th>
-        <th>Lecture</th>
-        <th>Code</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="todaysLecture: ${results}">
-        <form action="#" th:action="@{/check}" method="post">
-        <td th:text="${todaysLecture.date}"></td>
-        <td th:text="${todaysLecture.name}"></td>
-        <input type="hidden" th:value="${todaysLecture.ID}" name="ID" />
-            <input type="hidden" th:value="${todaysLecture.courseID}" name="courseID"  />
-        <td> <input th:name="code" th:type="text"> <button type="submit" th:value="Submit">Submit</button> </td>
+    <div class="center">
+        <table dt:table="true">
+            <h2>Your courses for today</h2>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Lecture</th>
+                <th>Code</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="todaysLecture: ${results}">
+                <form action="#" th:action="@{/check}" method="post">
+                <td th:text="${todaysLecture.date}"></td>
+                <td th:text="${todaysLecture.name}"></td>
+                <input type="hidden" th:value="${todaysLecture.ID}" name="ID" />
+                    <input type="hidden" th:value="${todaysLecture.courseID}" name="courseID"  />
+                <td> <input th:name="code" th:type="text"> <button type="submit" th:value="Submit">Submit</button> </td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+
+        <form action="/requestAttendanceReport" method="post">
+            <input type="submit" value="Send Attendance Report">
         </form>
-    </tr>
-    </tbody>
-</table>
-    <p>
-        <input type="submit" value="Send Attendance Report"
-               onclick="window.location='/reportService';" />
-    </p>
-</div>
+
+    </div>
 </body>
 </html>
